@@ -21,6 +21,7 @@
                         {{ __('Home') }}
                     </x-nav-link>
                 </div>
+
             </div>
 
             <!-- Settings Dropdown -->
@@ -60,6 +61,15 @@
                                 @endif
                             </x-dropdown-link>
                         </form>
+
+                        @if(Auth::check())
+
+                        @else
+                            <x-dropdown-link :href="route('register')">
+                                {{ __('Register') }}
+                            </x-dropdown-link>
+                        @endif
+
                     </x-slot>
                 </x-dropdown>
             </div>
