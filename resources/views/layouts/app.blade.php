@@ -26,7 +26,7 @@
 
                 </div>
             </header>
-
+            @yield('body')
             <!-- Page Content -->
             <main>
 
