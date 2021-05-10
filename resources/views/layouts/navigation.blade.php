@@ -12,7 +12,7 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('car.index')" :active="request()->routeIs('car.index')">
+                    <x-nav-link :href="route('cars.index')" :active="request()->routeIs('cars.index')">
                         {{ __('Cars') }}
                     </x-nav-link>
                 </div>
@@ -93,7 +93,7 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('car.index')" :active="request()->routeIs('car.index')">
+            <x-responsive-nav-link :href="route('cars.index')" :active="request()->routeIs('cars.index')">
                 {{ __('Cars') }}
             </x-responsive-nav-link>
         </div>

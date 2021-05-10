@@ -24,11 +24,17 @@
                         <td class="border border-green-600>header1">No</td>
                     @endif
                     @can('update-car')
-                        <td><button>EDIT</button></td>
+                        <td><button><a href="{{route('cars.edit', $car)}}">
+                                    <button>Edit</button>
+                                </a></button></td>
                     @endcan
                 </tr>
             @endforeach
             </tbody>
         </table>
+        <br>
+        <a href="/cars/create">
+            <button class="bg-green-600 hover:bg-green-600 text-white font-bold py-2 px-4 rounded">Create new</button>
+        </a>
     </div>
 @endsection

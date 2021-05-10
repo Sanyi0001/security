@@ -15,7 +15,7 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-Route::resource('/car', CarController::class)->middleware(['auth']);
+Route::resource('/cars', CarController::class)->middleware(['auth']);
 
 Route::resource('/', HomeController::class);
 
