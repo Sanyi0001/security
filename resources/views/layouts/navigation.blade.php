@@ -6,7 +6,7 @@
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
                     <a href="/">
-                        <img src="carsymbol1.png">
+                        <img src="/carsymbol1.png">
                     </a>
                 </div>
 
