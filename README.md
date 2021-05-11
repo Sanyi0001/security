@@ -1,6 +1,20 @@
 ## Steps
 
-1. 
+1. The hosted application is configured in such a way that it prevents snooping and attacks like session hijacking:
+
+    The application is secured in the following ways:
+
+        -> Lifetime is shortened to 25 mins. Additionally when the browser is closed it will immediately expire.
+
+        -> Session Encryption is enabled
+
+        -> HTTPS Only Cookies enabled by default
+
+        -> HTTPS sessions enforced
+
+        -> HTTP Access Only is set to true to prevent JavaScript accessing cookie values
+
+        -> Same-Site Cookies are set to 'strict' (not much sense for now but maybe good for further use)
 
 2. The application contains one or more features that require access control that prevent IDOR:
     
