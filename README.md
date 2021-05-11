@@ -28,6 +28,6 @@
 
                 ->Email : admin@admin.com
 
-                ->Password : admin (It is strongly recommended to modify this password in Production when the admin's
+                ->Password : jpTRvS-&#q6q7G2W (It is strongly recommended to modify this password in Production when the admin's
                 email is replaced with a valid email address. When entering the new password the 'strong password policy'
                 is enforced of course.)
