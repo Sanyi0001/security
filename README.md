@@ -15,6 +15,8 @@
         -> HTTP Access Only is set to true to prevent JavaScript accessing cookie values
 
         -> Same-Site Cookies are set to 'strict' (not much sense for now but maybe good for further use)
+        
+        -> Heroku is set to https by default
 
 2. The application contains one or more features that require access control that prevent IDOR:
     
