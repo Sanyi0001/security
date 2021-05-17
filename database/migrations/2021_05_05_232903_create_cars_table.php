@@ -15,7 +15,9 @@ class CreateCarsTable extends Migration
     {
         Schema::create('cars', function (Blueprint $table) {
             $table->id();
-            $table->string("release");
+            $table->bigInteger('registration_number');
+            $table->string('manufacturer');
+            $table->boolean('currently_available');
             $table->timestamps();
         });
     }

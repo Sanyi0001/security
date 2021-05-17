@@ -15,7 +15,7 @@ class CarController extends Controller
     public function index()
     {
 
-        $cars = Car::orderBy('release', 'desc')->get();
+        $cars = Car::orderBy('registration_number', 'asc')->get();
         return view('cars.index', compact('cars'));
     }
 
@@ -26,7 +26,7 @@ class CarController extends Controller
      */
     public function create()
     {
-        //
+        return view('cars.create');
     }
 
     /**
@@ -35,9 +35,10 @@ class CarController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Car $car , Request $request)
     {
-        //
+        Car::create($this->validateCar($request));
+        return redirect('/cars');
     }
 
     /**
@@ -48,7 +49,9 @@ class CarController extends Controller
      */
     public function show(Car $car)
     {
-        //
+
+        $cars = Car::orderBy('registration_number', 'asc')->get();
+        return view('cars.index', compact('cars'));
     }
 
     /**
@@ -59,7 +62,8 @@ class CarController extends Controller
      */
     public function edit(Car $car)
     {
-        //
+        $this->authorize('update-car');
+        return view('cars.edit',compact('car'));
     }
 
     /**
@@ -71,7 +75,9 @@ class CarController extends Controller
      */
     public function update(Request $request, Car $car)
     {
-        //
+        $this->authorize('update-car');
+        $car->update($this->validateCar($request));
+        return redirect(route('cars.show' , $car));
     }
 
     /**
@@ -82,6 +88,17 @@ class CarController extends Controller
      */
     public function destroy(Car $car)
     {
-        //
+        $this->authorize('update-car');
+        $car->delete();
+        return redirect(route('cars.index'));
+    }
+
+    public function validateCar($request){
+
+        return $request->validate([
+            'registration_number'=>'required|numeric',
+            'manufacturer'=>'required',
+            'currently_available'=>'required'
+        ]);
     }
 }
