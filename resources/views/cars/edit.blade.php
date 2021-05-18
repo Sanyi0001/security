@@ -48,10 +48,10 @@
                     <label class="md:w-2/3 block text-gray-500 font-bold">
                         <input type="hidden" id="currently_available" name="currently_available" value="0">
                         <input class="mr-2 leading-tight" id="currently_available" name="currently_available"
-                               type="checkbox"
+                               type="checkbox" value="1"
                                @if($car->currently_available == 1)
                                checked
-                               @endif
+                        @endif
                         <span class="text-sm">Currently available</span>
                     </label>
                 </div>
@@ -65,6 +65,16 @@
                     </div>
                 </div>
             </form>
+            <br>
+            <div>
+                <form method="POST" action="{{route('cars.destroy', $car)}}">
+                    @csrf
+                    @method('DELETE')
+                    <button class="bg-red-700 hover:bg-green-600 text-white font-bold py-2 px-4 rounded"
+                            type="submit">Delete
+                    </button>
+                </form>
+            </div>
         </div>
     </div>
 @endsection
