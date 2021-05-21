@@ -67,13 +67,15 @@
             </form>
             <br>
             <div>
-                <form method="POST" action="{{route('cars.destroy', $car)}}">
-                    @csrf
-                    @method('DELETE')
-                    <button class="bg-red-700 hover:bg-green-600 text-white font-bold py-2 px-4 rounded"
-                            type="submit">Delete
-                    </button>
-                </form>
+                <div>
+                    <form method="POST" action="{{route('cars.destroy', $car)}}">
+                        @csrf
+                        @method('DELETE')
+                        <button class="bg-red-700 hover:bg-green-600 text-white font-bold py-2 px-4 rounded"
+                                type="submit">Delete
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
