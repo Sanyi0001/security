@@ -6,7 +6,7 @@
             <br>
             <div class="md:flex md:items-center mb-6">
                 <div class="md:w-1/3">
-                    <h1 class="block text-green-600 font-bold text-center mb-1 md:mb-0 pr-4">Edit Car</h1>
+                    <h1 class="text-green-600 font-bold text-left mb-1 md:mb-0 pr-4 ml-10">Edit Car</h1>
                 </div>
             </div>
             <form class="w-full max-w-sm" method="POST" action="{{route('cars.show', $car)}}">
@@ -59,24 +59,20 @@
                     <div class="md:w-1/3"></div>
                     <div class="md:w-2/3">
                         <button
-                            class="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+                            class="shadow bg-green-600 hover:bg-green-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
                             type="submit">Submit
                         </button>
                     </div>
                 </div>
             </form>
             <br>
-            <div>
-                <div>
-                    <form method="POST" action="{{route('cars.destroy', $car)}}">
-                        @csrf
-                        @method('DELETE')
-                        <button class="bg-red-700 hover:bg-green-600 text-white font-bold py-2 px-4 rounded"
-                                type="submit">Delete
-                        </button>
-                    </form>
-                </div>
-            </div>
+            <form class="w-full max-w-sm" method="POST" action="{{route('cars.destroy', $car)}}">
+                @csrf
+                @method('DELETE')
+                <button class="shadow bg-red-600 hover:bg-red-400 text-white font-bold py-2 px-4 rounded ml-32"
+                        type="submit">Delete
+                </button>
+            </form>
         </div>
     </div>
 @endsection

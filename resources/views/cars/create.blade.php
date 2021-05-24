@@ -6,7 +6,7 @@
             <br>
             <div class="md:flex md:items-center mb-6">
                 <div class="md:w-1/3">
-                    <h1 class="block text-green-600 font-bold text-center mb-1 md:mb-0 pr-4">Add new Car</h1>
+                    <h1 class="text-green-600 font-bold text-left mb-1 md:mb-0 pr-4 ml-5">Add new Car</h1>
                 </div>
             </div>
             <form class="w-full max-w-sm" method="POST" action="{{route('cars.index')}}">
@@ -55,7 +55,7 @@
                     <div class="md:w-1/3"></div>
                     <div class="md:w-2/3">
                         <button
-                            class="shadow bg-green-600 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+                            class="shadow bg-green-600 hover:bg-green-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
                             type="submit">Submit
                         </button>
                     </div>
