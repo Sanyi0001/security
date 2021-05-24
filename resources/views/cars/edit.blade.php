@@ -69,7 +69,7 @@
             <form class="w-full max-w-sm" method="POST" action="{{route('cars.destroy', $car)}}">
                 @csrf
                 @method('DELETE')
-                <button class="shadow bg-red-600 hover:bg-red-400 text-white font-bold py-2 px-4 rounded ml-32"
+                <button class="shadow bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-4 rounded ml-32"
                         type="submit">Delete
                 </button>
             </form>
