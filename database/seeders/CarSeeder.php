@@ -14,13 +14,13 @@ class CarSeeder extends Seeder
     public function run()
     {
         \DB::table('cars')->insert([
-            'registration_number' => '123456789', 'manufacturer' => 'Ford', 'currently_available' =>1
+            'registration_number' => '123456789', 'manufacturer' => 'Ford', 'currently_available' =>1, 'contact_email' => "example1@gmail.com"
         ]);
         \DB::table('cars')->insert([
-            'registration_number' => '143682350', 'manufacturer' => 'Tesla', 'currently_available' =>0
+            'registration_number' => '143682350', 'manufacturer' => 'Tesla', 'currently_available' =>0, 'contact_email' => "example1@gmail.com"
         ]);
         \DB::table('cars')->insert([
-            'registration_number' => '142388457', 'manufacturer' => 'Audi', 'currently_available' =>1
+            'registration_number' => '142388457', 'manufacturer' => 'Audi', 'currently_available' =>1, 'contact_email' => "example2@gmail.com"
         ]);
     }
 }
