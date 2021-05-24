@@ -8,6 +8,7 @@
                 <th class="border border-green-600>header1">Registration number</th>
                 <th class="border border-green-600>header2">Manufacturer</th>
                 <th class="border border-green-600>header1">Currently available</th>
+                <th class="border border-green-600>header1">Contact email</th>
                 @can('update-car')
                     <th class="border border-green-600>header1">Edit car</th>
                 @endcan
@@ -23,6 +24,7 @@
                     @else
                         <td class="border border-green-600>header1">No</td>
                     @endif
+                    <td class="border border-green-600>header1">{{$car->contact_email}}</td>
                     @can('update-car')
                         <td><button><a href="{{route('cars.edit', $car)}}">
                                     <button>Edit</button>

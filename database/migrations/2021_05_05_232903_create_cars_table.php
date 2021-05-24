@@ -17,6 +17,7 @@ class CreateCarsTable extends Migration
             $table->id();
             $table->bigInteger('registration_number');
             $table->string('manufacturer');
+            $table->string('contact_email');
             $table->boolean('currently_available');
             $table->timestamps();
         });
