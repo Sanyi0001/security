@@ -50,16 +50,19 @@
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
-
-                            <x-dropdown-link :href="route('logout')"
-                                             onclick="event.preventDefault();
+                            @if(Auth::check())
+                                <x-dropdown-link :href="route('logout')"
+                                                 onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                                @if(Auth::check())
                                     {{ __('Log out') }}
-                                @else
+                                </x-dropdown-link>
+                            @else
+                                <x-dropdown-link :href="route('login')"
+                                                 onclick="event.preventDefault();
+                                                this.closest('form').submit();">
                                     {{ __('Log in') }}
-                                @endif
-                            </x-dropdown-link>
+                                </x-dropdown-link>
+                            @endif
                         </form>
 
                         @if(Auth::check())

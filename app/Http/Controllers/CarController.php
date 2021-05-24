@@ -98,7 +98,7 @@ class CarController extends Controller
         return $request->validate([
             'registration_number'=>'required|numeric',
             'manufacturer'=>'required',
-            'currently_available'=>'required'
+            'currently_available'=>'boolean'
         ]);
     }
 }

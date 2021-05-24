@@ -14,7 +14,7 @@ use App\Http\Controllers\HomeController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::resource('/car', CarController::class)->middleware(['auth']); //this is needed because some weird bug on heroku, will be removed soon
 Route::resource('/cars', CarController::class)->middleware(['auth']);
 
 Route::resource('/', HomeController::class);
