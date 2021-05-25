@@ -20,10 +20,16 @@
                     <div class="md:w-2/3">
                         <input
                             class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500 {{$errors->has('registration_number') ? 'is-danger' : ''}}"
-                            id="registration_number" name="registration_number" type="text"
-                            value="{{old('registration_number')}}">
+                            id="registration_number" name="registration_number" type="text" title="8-digit number"
+                            pattern="[1-9]{8}"
+                            value="{{old('registration_number')}}" required>
                         @error('registration_number')
-                        <p class="text-red-600">{{$errors->first('registration_number')}}</p>
+                        @if($errors->first('registration_number') == "The registration number has already been taken.")
+                            <p class="text-red-600">A car with this registration number already exists in our
+                                system!</p>
+                        @else
+                            <p class="text-red-600">{{$errors->first('registration_number')}}</p>
+                        @endif
                         @enderror
                     </div>
                 </div>
@@ -33,10 +39,10 @@
                             Manufacturer
                         </label>
                     </div>
-                    <div class="md:w-2/3">
+                    <div class="md:w-2/3">m
                         <input
                             class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500 {{$errors->has('manufacturer') ? 'is-danger' : ''}}"
-                            id="manufacturer" name="manufacturer" type="text" value="{{old('manufacturer')}}">
+                            id="manufacturer" name="manufacturer" type="text" value="{{old('manufacturer')}}" required>
                         @error('manufacturer')
                         <p class="text-red-600">{{$errors->first('manufacturer')}}</p>
                         @enderror
@@ -51,7 +57,8 @@
                     <div class="md:w-2/3">
                         <input
                             class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500 {{$errors->has('manufacturer') ? 'is-danger' : ''}}"
-                            id="contact_email" name="contact_email" type="text" value="{{old('contact_email')}}">
+                            id="contact_email" name="contact_email" type="email" value="{{old('contact_email')}}"
+                            required>
                         @error('contact_email')
                         <p class="text-red-600">{{$errors->first('contact_email')}}</p>
                         @enderror

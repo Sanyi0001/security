@@ -96,10 +96,27 @@ class CarController extends Controller
     public function validateCar($request){
 
         return $request->validate([
-            'registration_number'=>'required|numeric',
+            'registration_number'=>'required|numeric|unique:cars',
             'manufacturer'=>'required',
             'currently_available'=>'boolean',
             'contact_email'=>'required|email'
         ]);
+    }
+
+    public function rules(): array
+    {
+        return [
+            'registration_number'=>'required|digits:8|unique:cars',
+            'manufacturer'=>'required',
+            'currently_available'=>'boolean',
+            'contact_email'=>'required|email'
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'registration_number.unique' => 'We already have a car registered with this number in our database!'
+        ];
     }
 }
