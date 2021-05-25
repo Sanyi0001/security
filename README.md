@@ -10,8 +10,6 @@
 
         -> HTTPS Only Cookies enabled by default
 
-        -> HTTPS sessions enforced
-
         -> HTTP Access Only is set to true to prevent JavaScript accessing cookie values
 
         -> Same-Site Cookies are set to 'strict' (not much sense for now but maybe good for further use)
