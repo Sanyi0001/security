@@ -76,7 +76,7 @@ class CarController extends Controller
     public function update(Request $request, Car $car)
     {
         $this->authorize('update-car');
-        $car->update($this->validateCar($request));
+        $car->update($this->validateCarUpdate($request));
         return redirect(route('cars.show' , $car));
     }
 
@@ -103,20 +103,13 @@ class CarController extends Controller
         ]);
     }
 
-    public function rules(): array
-    {
-        return [
-            'registration_number'=>'required|digits:8|unique:cars',
+    public function validateCarUpdate($request){
+
+        return $request->validate([
             'manufacturer'=>'required',
             'currently_available'=>'boolean',
             'contact_email'=>'required|email'
-        ];
+        ]);
     }
 
-    public function messages(): array
-    {
-        return [
-            'registration_number.unique' => 'We already have a car registered with this number in our database!'
-        ];
-    }
 }

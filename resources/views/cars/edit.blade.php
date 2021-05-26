@@ -23,7 +23,7 @@
                             class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500 {{$errors->has('registration_number') ? 'is-danger' : ''}}"
                             id="registration_number" name="registration_number" type="text" title="8-digit number"
                             pattern="[1-9]{8}"
-                            value="{{$car->registration_number}}" required>
+                            value="{{$car->registration_number}}" required disabled>
                         @error('registration_number')
                         @if($errors->first('registration_number') == "The registration number has already been taken.")
                             <p class="text-red-600">A car with this registration number already exists in our
