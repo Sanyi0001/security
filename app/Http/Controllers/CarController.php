@@ -96,7 +96,7 @@ class CarController extends Controller
     public function validateCar($request){
 
         return $request->validate([
-            'registration_number'=>'required|numeric|unique:cars',
+            'registration_number'=>'required|digits:8|unique:cars',
             'manufacturer'=>'required',
             'currently_available'=>'boolean',
             'contact_email'=>'required|email'
