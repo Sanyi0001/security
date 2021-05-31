@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Car;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class CarController extends Controller
 {
@@ -16,6 +17,11 @@ class CarController extends Controller
     {
 
         $cars = Car::orderBy('registration_number', 'asc')->get();
+        $response = Http::get('https://free.currconv.com/api/v7/convert?q=USD_EUR&compact=ultra&apiKey=9c7b50ffa8a208a7459f');
+        $ex = $response->json('USD_EUR');
+        foreach($cars as $car) {
+            $car->EUR = $car->USD * $ex;
+    }
         return view('cars.index', compact('cars'));
     }
 
@@ -99,7 +105,8 @@ class CarController extends Controller
             'registration_number'=>'required|digits:8|unique:cars',
             'manufacturer'=>'required',
             'currently_available'=>'boolean',
-            'contact_email'=>'required|email'
+            'contact_email'=>'required|email',
+            'USD'=>'required|numeric'
         ]);
     }
 
@@ -108,7 +115,8 @@ class CarController extends Controller
         return $request->validate([
             'manufacturer'=>'required',
             'currently_available'=>'boolean',
-            'contact_email'=>'required|email'
+            'contact_email'=>'required|email',
+            'USD'=>'required|numeric'
         ]);
     }
 

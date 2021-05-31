@@ -19,6 +19,7 @@ class CreateCarsTable extends Migration
             $table->string('manufacturer');
             $table->string('contact_email');
             $table->boolean('currently_available');
+            $table->bigInteger('USD');
             $table->timestamps();
         });
     }

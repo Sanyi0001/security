@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('body')
+
+    <div id="test"></div>
+
     <div class="content-center container mx-auto px-4">
         <table class="table-auto border-separate border border-green-800 bg-green-200">
             <thead>
@@ -9,6 +12,8 @@
                 <th class="border border-green-600>header2">Manufacturer</th>
                 <th class="border border-green-600>header1">Currently available</th>
                 <th class="border border-green-600>header1">Contact email</th>
+                <th class="border border-green-600>header1">Price (USD)</th>
+                <th class="border border-green-600>header1">Price (EUR)</th>
                 @can('update-car')
                     <th class="border border-green-600>header1">Edit car</th>
                 @endcan
@@ -25,6 +30,8 @@
                         <td class="border border-green-600>header1">No</td>
                     @endif
                     <td class="border border-green-600>header1">{{$car->contact_email}}</td>
+                    <td class="border border-green-600>header1">{{$car->USD}}</td>
+                    <td class="border border-green-600>header1">{{$car->EUR}}</td>
                     @can('update-car')
                         <td><button><a href="{{route('cars.edit', $car)}}">
                                     <button>Edit</button>

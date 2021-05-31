@@ -19,5 +19,4 @@ Route::resource('/cars', CarController::class)->middleware(['auth']);
 
 Route::resource('/', HomeController::class);
 
-
 require __DIR__.'/auth.php';
