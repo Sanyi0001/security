@@ -55,9 +55,7 @@ class CarController extends Controller
      */
     public function show(Car $car)
     {
-
-        $cars = Car::orderBy('registration_number', 'asc')->get();
-        return view('cars.index', compact('cars'));
+        return redirect('/cars');
     }
 
     /**

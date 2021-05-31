@@ -9,14 +9,17 @@
                     <h1 class="text-green-600 font-bold text-left mb-1 md:mb-0 pr-4 ml-5">Add new Car</h1>
                 </div>
             </div>
+
             <form class="w-full max-w-sm" method="POST" action="{{route('cars.index')}}">
                 @csrf
+
                 <div class="md:flex md:items-center mb-6">
                     <div class="md:w-1/3">
                         <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4 required"
                                for="registration_number">Registration number
                         </label>
                     </div>
+
                     <div class="md:w-2/3">
                         <input
                             class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4
@@ -35,6 +38,7 @@
                         @enderror
                     </div>
                 </div>
+
                 <div class="md:flex md:items-center mb-6">
                     <div class="md:w-1/3">
                         <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4 required"
@@ -42,6 +46,7 @@
                             Manufacturer
                         </label>
                     </div>
+
                     <div class="md:w-2/3">
                         <input
                             class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4
@@ -53,6 +58,7 @@
                         @enderror
                     </div>
                 </div>
+
                 <div class="md:flex md:items-center mb-6">
                     <div class="md:w-1/3">
                         <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4 required"
@@ -60,6 +66,7 @@
                             Email
                         </label>
                     </div>
+
                     <div class="md:w-2/3">
                         <input
                             class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4
@@ -79,6 +86,7 @@
                                for="USD">Price (USD)
                         </label>
                     </div>
+
                     <div class="md:w-2/3">
                         <input
                             class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4
@@ -101,6 +109,7 @@
                         <span class="text-sm">Currently available</span>
                     </label>
                 </div>
+
                 <div class="md:flex md:items-center">
                     <div class="md:w-1/3"></div>
                     <div class="md:w-2/3">

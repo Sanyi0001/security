@@ -58,7 +58,7 @@
                 <div class="md:flex md:items-center mb-6">
                     <div class="md:w-1/3">
                         <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4 required"
-                               for="manufacturer">
+                               for="contact_email">
                             Email
                         </label>
                     </div>
@@ -66,11 +66,30 @@
                         <input
                             class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4
                             text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500
-                            {{$errors->has('manufacturer') ? 'is-danger' : ''}}"
+                            {{$errors->has('contact_email') ? 'is-danger' : ''}}"
                             id="contact_email" name="contact_email" type="email" value="{{$car->contact_email}}"
                             required>
-                        @error('manufacturer')
+                        @error('contact_email')
                         <p class="text-red-600">{{$errors->first('contact_email')}}</p>
+                        @enderror
+                    </div>
+                </div>
+                <div class="md:flex md:items-center mb-6">
+                    <div class="md:w-1/3">
+                        <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4 required"
+                               for="USD">
+                            Price (USD)
+                        </label>
+                    </div>
+                    <div class="md:w-2/3">
+                        <input
+                            class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4
+                            text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500
+                            {{$errors->has('USD') ? 'is-danger' : ''}}"
+                            id="USD" name="USD" type="enumber" value="{{$car->USD}}"
+                            required>
+                        @error('USD')
+                        <p class="text-red-600">{{$errors->first('USD')}}</p>
                         @enderror
                     </div>
                 </div>
