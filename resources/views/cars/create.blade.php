@@ -84,8 +84,7 @@
                             class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4
                             text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500
                             {{$errors->has('USD') ? 'is-danger' : ''}}"
-                            id="USD" name="USD" type="text" title="Price in USD"
-                            pattern="[1-9]"
+                            id="USD" name="USD" type="number" title="Price in USD"
                             value="{{old('USD')}}" required>
                         @error('USD')
                             <p class="text-red-600">{{$errors->first('registration_number')}}</p>
