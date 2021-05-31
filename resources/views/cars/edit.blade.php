@@ -86,10 +86,16 @@
                             class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4
                             text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500
                             {{$errors->has('USD') ? 'is-danger' : ''}}"
-                            id="USD" name="USD" type="enumber" value="{{$car->USD}}"
+                            id="USD" name="USD" type="number" value="{{$car->USD}}"
                             required>
                         @error('USD')
-                        <p class="text-red-600">{{$errors->first('USD')}}</p>
+                        @if($errors->first('USD') == "The u s d must be a number.")
+                            <p class="text-red-600">
+                                The price must be a number!
+                            </p>
+                        @else
+                            <p class="text-red-600">{{$errors->first('USD')}}</p>
+                        @endif
                         @enderror
                     </div>
                 </div>

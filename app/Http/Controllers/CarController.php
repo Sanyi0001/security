@@ -20,7 +20,7 @@ class CarController extends Controller
         $response = Http::get('https://free.currconv.com/api/v7/convert?q=USD_EUR&compact=ultra&apiKey=9c7b50ffa8a208a7459f');
         $ex = $response->json('USD_EUR');
         foreach($cars as $car) {
-            $car->EUR = $car->USD * $ex;
+            $car->EUR = round($car->USD * $ex);
     }
         return view('cars.index', compact('cars'));
     }
