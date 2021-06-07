@@ -22,7 +22,7 @@ Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $requ
     return redirect('/home');
 })->middleware(['auth', 'signed'])->name('verification.verify');
 
-Route::resource('/cars', CarController::class)->middleware(['auth']);
+Route::resource('/cars', CarController::class)->middleware(['auth'])->middleware('verified');
 
 Route::resource('/', HomeController::class);
 
