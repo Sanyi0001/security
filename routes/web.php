@@ -16,11 +16,6 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 |
 */
 
-Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
-    $request->fulfill();
-
-    return redirect('/home');
-})->middleware(['auth', 'signed'])->name('verification.verify');
 
 Route::resource('/cars', CarController::class)->middleware(['auth'])->middleware('verified');
 
