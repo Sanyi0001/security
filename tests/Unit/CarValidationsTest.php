@@ -19,8 +19,10 @@ class CarValidationsTest extends TestCase
      */
     public function test_create_car_validation_with_wrong_registration_number()
     {
+        // given: validation
         $user = User::factory()->create();
 
+        // when: validation is executed with wrong registration number
         $response = $this->actingAs($user)->post(route('cars.store'), [
             'registration_number' => 123456,
             'manufacturer' => 'Audi',
@@ -28,14 +30,18 @@ class CarValidationsTest extends TestCase
             'currently_available' => 0,
             'USD' => 1000
         ]);
+
+        // then: expect that validation fails
         $response->assertSessionHasErrors(['registration_number']);
 
     }
 
     public function test_create_car_validation_with_badly_formatted_email_address()
     {
+        // given: validation
         $user = User::factory()->create();
 
+        // when: validation is executed with badly formulated email address
         $response = $this->actingAs($user)->post(route('cars.store'), [
             'registration_number' => 12345678,
             'manufacturer' => 'Audi',
@@ -43,6 +49,8 @@ class CarValidationsTest extends TestCase
             'currently_available' => 0,
             'USD' => 1000
         ]);
+
+        // then: expect that validation fails
         $response->assertSessionHasErrors(['contact_email']);
     }
 }
