@@ -2,10 +2,13 @@
 
 namespace Database\Seeders;
 
+use App\Models\Car;
 use Illuminate\Database\Seeder;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class CarSeeder extends Seeder
 {
+    use RefreshDatabase;
     /**
      * Run the database seeds.
      *
@@ -22,5 +25,9 @@ class CarSeeder extends Seeder
         \DB::table('cars')->insert([
             'registration_number' => '14238845', 'manufacturer' => 'Audi', 'currently_available' =>1, 'contact_email' => "example2@gmail.com", 'USD'=>12540
         ]);
+
+        //Car::factory()->count(10)->create();
     }
+
+
 }
