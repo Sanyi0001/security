@@ -16,19 +16,23 @@ class ElevatedPrivilegesTest extends TestCase
      *
      * @return void
      */
-    public function test_cars_delete_without_admin_privileges()
+    public function test_cars_access_without_admin_privileges()
     {
-        // Given (Arrange, the guest is not logged in and clicks on the „cars” tab in the navbar)
-        $response = $this->get('/cars');
+        // Given (Arrange, the user is logged in as normal user)
+        $user = User::factory()->create();
+        $car = Car::factory()->create();
+        // Given (Arrange, the user is logged in as normal user and tries to reach the edit panel)
+        $response = $this->actingAs($user)->get('/cars/1/edit');
 
         // When (Act, the user is not logged in) , Then (Assert, the user is redirected to the login page)
-        $response->assertStatus(302);
+        $response->assertStatus(403);
     }
 
     public function test_cars_edit_with_admin_privileges()
     {
         // Given (Arrange, the user is logged in as admin)
         $admin = User::factory()->create();
+
         //This is the default email address, the
         //system determines the role based on the email address. The admin email is hardcoded and seeded to the DB
         $admin->email = "admin@admin.com";

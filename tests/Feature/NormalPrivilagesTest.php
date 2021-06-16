@@ -17,14 +17,20 @@ class normalPrivilagesTest extends TestCase
      */
     public function test_cars_without_logging_in()
     {
-        // Given (Arrange, the guest is not logged in and clicks on the „cars” tab in the navbar)
+        //Unhappy path
+
+        // Given (Arrange, the guest is not logged in)
+
+        // When (Act, the guest clicks on the „cars” tab in the navbar)
         $response = $this->get('/cars');
 
-        // When (Act, the user is not logged in) , Then (Assert, the user is redirected to the login page)
+         //Then (Assert, the guest is redirected to the login page)
         $response->assertStatus(302);
     }
     public function test_cars_with_logging_in()
     {
+        //Happy path
+
         // Given (Arrange, the user is logged in)
         $user = User::factory()->create();
 
