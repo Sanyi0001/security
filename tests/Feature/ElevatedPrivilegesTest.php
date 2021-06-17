@@ -18,20 +18,25 @@ class ElevatedPrivilegesTest extends TestCase
      */
     public function test_cars_access_without_admin_privileges()
     {
+        // Unhappy path
+
         // Given (Arrange, the user is logged in as normal user)
         $user = User::factory()->create();
         $car = Car::factory()->create();
-        // Given (Arrange, the user is logged in as normal user and tries to reach the edit panel)
+        // When (Acr, the user and tries to reach the edit panel)
         $response = $this->actingAs($user)->get('/cars/1/edit');
 
-        // When (Act, the user is not logged in) , Then (Assert, the user is redirected to the login page)
+        // Then (Assert, the user is prompted with a 403 page)
         $response->assertStatus(403);
     }
 
     public function test_cars_edit_with_admin_privileges()
     {
+        // Happy path
+
         // Given (Arrange, the user is logged in as admin)
         $admin = User::factory()->create();
+        $car = Car::factory()->create();
 
         //This is the default email address, the
         //system determines the role based on the email address. The admin email is hardcoded and seeded to the DB
@@ -46,6 +51,8 @@ class ElevatedPrivilegesTest extends TestCase
 
     public function test_cars_delete_with_admin_privileges()
     {
+        // Happy path
+
         // Given (Arrange, the user is logged in as admin)
         $admin = User::factory()->create();
         //This is the default email address, the
@@ -55,10 +62,10 @@ class ElevatedPrivilegesTest extends TestCase
         $manufacturer = $car->manufacturer;
         $route = route('cars.destroy', $car);
 
-        // When (Act, the deletes a car)
+        // When (Act, the admin clicks the delete button)
         $response = $this->actingAs($admin)->delete($route);
 
-        // Then (Assert ,the user is able to see the details of the cars)
+        // Then (Assert ,the car is no longer in the database)
         $response->assertStatus(302);
         $this->assertDatabaseMissing('cars', ["manufacturer" => $manufacturer]);
     }
